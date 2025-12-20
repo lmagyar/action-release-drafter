@@ -6,6 +6,10 @@
 
 ---
 
+## Fork
+
+This fork uses GitHub's latest release as possible oldest release when sorting releases to find last release. This fixes https://github.com/release-drafter/release-drafter/issues/913.
+
 ## Usage
 
 You can use the [Release Drafter GitHub Action](https://github.com/marketplace/actions/release-drafter) in a [GitHub Actions Workflow](https://help.github.com/en/actions/about-github-actions) by configuring a YAML-based workflow file, e.g. `.github/workflows/release-drafter.yml`, with the following:
