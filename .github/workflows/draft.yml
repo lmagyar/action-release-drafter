@@ -9,6 +9,9 @@ jobs:
   update_release_draft:
     runs-on: ubuntu-latest
     steps:
+      - name: Wait for 15 seconds to ensure GraphQL consistency
+        shell: bash
+        run: sleep 15s
       - uses: lmagyar/action-release-drafter@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
