@@ -172,6 +172,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           await probot.receive({
             name: 'push',
             payload: pushNonMasterPayload,
@@ -240,6 +247,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           await probot.receive({
             name: 'push',
             payload: pushTagPayload,
@@ -291,6 +305,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         const payload = pushPayload
 
@@ -346,6 +365,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -400,6 +424,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           // This payload has a different ref to GITHUB_REF, which is how GitHub
@@ -444,6 +473,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -492,6 +526,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           await probot.receive({
             name: 'push',
@@ -542,6 +583,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           await probot.receive({
             name: 'push',
             payload: pushPayload,
@@ -591,6 +639,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           await probot.receive({
             name: 'push',
             payload: pushPayload,
@@ -636,6 +691,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           await probot.receive({
             name: 'push',
             payload: pushPayload,
@@ -678,6 +740,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           await probot.receive({
             name: 'push',
@@ -723,6 +792,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           await probot.receive({
             name: 'push',
@@ -776,6 +852,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -818,6 +899,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           await probot.receive({
             name: 'push',
@@ -870,6 +958,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -930,6 +1023,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -986,6 +1084,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1044,6 +1147,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1099,6 +1207,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1153,6 +1266,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1213,6 +1331,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1269,6 +1392,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1319,6 +1447,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, preReleasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1376,6 +1509,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1426,6 +1564,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1470,6 +1613,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1512,6 +1660,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1553,6 +1706,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1600,6 +1758,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1642,6 +1805,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1687,6 +1855,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -1729,6 +1902,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1776,6 +1954,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -1832,6 +2015,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           const payload = pushPayload
 
           await probot.receive({
@@ -1885,6 +2075,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           const payload = pushPayload
 
@@ -1940,6 +2137,13 @@ describe('release-drafter', () => {
             )
             .reply(200, releasePayload)
 
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
+
           const payload = pushPayload
 
           await probot.receive({
@@ -1990,6 +2194,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           await probot.receive({
             name: 'push',
@@ -2043,6 +2254,13 @@ describe('release-drafter', () => {
               }
             )
             .reply(200, releasePayload)
+
+          nock('https://api.github.com')
+            .get(
+              '/repos/toolmantim/release-drafter-test-project/releases/latest'
+            )
+            .query(true)
+            .reply(200, {})
 
           await probot.receive({
             name: 'push',
@@ -2112,6 +2330,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         const payload = pushPayload
 
         await probot.receive({
@@ -2165,6 +2388,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         const payload = pushPayload
 
@@ -2236,6 +2464,11 @@ describe('release-drafter', () => {
         )
         .reply(200, releasePayload)
 
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
+
       const payload = pushPayload
 
       await probot.receive({
@@ -2305,6 +2538,11 @@ describe('release-drafter', () => {
         )
         .reply(200, releasePayload)
 
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
+
       const payload = pushPayload
 
       await probot.receive({
@@ -2362,6 +2600,11 @@ describe('release-drafter', () => {
         )
         .reply(200, releasePayload)
 
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
+
       const payload = pushPayload
 
       await probot.receive({
@@ -2413,6 +2656,11 @@ describe('release-drafter', () => {
         )
         .reply(200, releasePayload)
 
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
+
       const payload = pushPayload
 
       await probot.receive({
@@ -2450,6 +2698,11 @@ describe('release-drafter', () => {
         .post('/repos/toolmantim/release-drafter-test-project/releases')
         .reply(200, releasePayload)
 
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
+
       const payload = pushPayload
 
       await probot.receive({
@@ -2484,6 +2737,11 @@ describe('release-drafter', () => {
       nock('https://api.github.com')
         .post('/repos/toolmantim/release-drafter-test-project/releases')
         .reply(200, releasePayload)
+
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
 
       const payload = pushPayload
 
@@ -2584,6 +2842,11 @@ describe('release-drafter', () => {
         )
         .reply(200, releasePayload)
 
+      nock('https://api.github.com')
+        .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+        .query(true)
+        .reply(200, {})
+
       await probot.receive({
         name: 'push',
         payload: pushPayload,
@@ -2664,6 +2927,11 @@ describe('release-drafter', () => {
         }
       )
       .reply(200, releasePayload)
+
+    nock('https://api.github.com')
+      .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+      .query(true)
+      .reply(200, {})
 
     await probot.receive({
       name: 'push',
@@ -2968,6 +3236,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -3025,6 +3298,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -3080,6 +3358,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -3132,6 +3415,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -3186,6 +3474,11 @@ describe('release-drafter', () => {
           )
           .reply(200, alteredReleasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -3231,6 +3524,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -3272,6 +3570,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -3315,6 +3618,11 @@ describe('release-drafter', () => {
           )
           .reply(200, releasePayload)
 
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
+
         await probot.receive({
           name: 'push',
           payload: pushPayload,
@@ -3356,6 +3664,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -3399,6 +3712,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
@@ -3444,6 +3762,11 @@ describe('release-drafter', () => {
             }
           )
           .reply(200, releasePayload)
+
+        nock('https://api.github.com')
+          .get('/repos/toolmantim/release-drafter-test-project/releases/latest')
+          .query(true)
+          .reply(200, {})
 
         await probot.receive({
           name: 'push',
