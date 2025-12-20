@@ -266,11 +266,13 @@ describe('releases', () => {
           tag_name: 'test-1.0.1',
           target_commitish: 'master',
           created_at: '2021-06-29T05:45:15Z',
+          published_at: '2021-06-29T05:45:15Z',
         },
         {
           tag_name: 'test-1.0.0',
           target_commitish: 'master',
           created_at: '2022-06-29T05:45:15Z',
+          published_at: '2021-06-29T05:45:15Z',
         },
       ])
 
@@ -284,7 +286,10 @@ describe('releases', () => {
         },
         octokit: {
           paginate,
-          repos: { listReleases: { endpoint: { merge: jest.fn() } } },
+          repos: {
+            listReleases: { endpoint: { merge: jest.fn() } },
+            getLatestRelease: jest.fn().mockResolvedValue({}),
+          },
         },
       }
       const targetCommitish = 'refs/heads/master'
@@ -305,7 +310,10 @@ describe('releases', () => {
       payload: { repository: { full_name: 'test' } },
       octokit: {
         paginate: paginateMock,
-        repos: { listReleases: { endpoint: { merge: jest.fn() } } },
+        repos: {
+          listReleases: { endpoint: { merge: jest.fn() } },
+          getLatestRelease: jest.fn().mockResolvedValue({}),
+        },
       },
       repo: jest.fn(),
       log: { info: jest.fn(), warn: jest.fn() },
@@ -313,9 +321,24 @@ describe('releases', () => {
 
     it('should return last release without draft and prerelease', async () => {
       paginateMock.mockResolvedValueOnce([
-        { tag_name: 'v1.0.0', draft: true, prerelease: false },
-        { tag_name: 'v1.0.1', draft: false, prerelease: false },
-        { tag_name: 'v1.0.2-rc.1', draft: false, prerelease: true },
+        {
+          tag_name: 'v1.0.0',
+          draft: true,
+          prerelease: false,
+          published_at: null,
+        },
+        {
+          tag_name: 'v1.0.1',
+          draft: false,
+          prerelease: false,
+          published_at: '2021-06-29T05:45:15Z',
+        },
+        {
+          tag_name: 'v1.0.2-rc.1',
+          draft: false,
+          prerelease: true,
+          published_at: '2021-06-29T05:45:15Z',
+        },
       ])
 
       const { lastRelease } = await findReleases({
@@ -328,14 +351,30 @@ describe('releases', () => {
         tag_name: 'v1.0.1',
         draft: false,
         prerelease: false,
+        published_at: '2021-06-29T05:45:15Z',
       })
     })
 
     it('should return last draft release', async () => {
       paginateMock.mockResolvedValueOnce([
-        { tag_name: 'v1.0.0', draft: true, prerelease: false },
-        { tag_name: 'v1.0.1', draft: false, prerelease: false },
-        { tag_name: 'v1.0.2-rc.1', draft: false, prerelease: true },
+        {
+          tag_name: 'v1.0.0',
+          draft: true,
+          prerelease: false,
+          published_at: null,
+        },
+        {
+          tag_name: 'v1.0.1',
+          draft: false,
+          prerelease: false,
+          published_at: '2021-06-29T05:45:15Z',
+        },
+        {
+          tag_name: 'v1.0.2-rc.1',
+          draft: false,
+          prerelease: true,
+          published_at: '2021-06-29T05:45:15Z',
+        },
       ])
 
       const { draftRelease } = await findReleases({
@@ -349,14 +388,30 @@ describe('releases', () => {
         tag_name: 'v1.0.0',
         draft: true,
         prerelease: false,
+        published_at: null,
       })
     })
 
     it('should return last prerelease as last release when includePreReleases is true', async () => {
       paginateMock.mockResolvedValueOnce([
-        { tag_name: 'v1.0.0', draft: true, prerelease: false },
-        { tag_name: 'v1.0.1', draft: false, prerelease: false },
-        { tag_name: 'v1.0.2-rc.1', draft: true, prerelease: true },
+        {
+          tag_name: 'v1.0.0',
+          draft: true,
+          prerelease: false,
+          published_at: null,
+        },
+        {
+          tag_name: 'v1.0.1',
+          draft: false,
+          prerelease: false,
+          published_at: '2021-06-29T05:45:15Z',
+        },
+        {
+          tag_name: 'v1.0.2-rc.1',
+          draft: true,
+          prerelease: true,
+          published_at: null,
+        },
       ])
 
       const { draftRelease, lastRelease } = await findReleases({
@@ -370,12 +425,14 @@ describe('releases', () => {
         tag_name: 'v1.0.2-rc.1',
         draft: true,
         prerelease: true,
+        published_at: null,
       })
 
       expect(lastRelease).toEqual({
         tag_name: 'v1.0.1',
         draft: false,
         prerelease: false,
+        published_at: '2021-06-29T05:45:15Z',
       })
     })
   })
